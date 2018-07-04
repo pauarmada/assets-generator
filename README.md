@@ -8,14 +8,13 @@ From a folder of images, the script automatically generate a properly resized an
 
 ### Android support for drawable states:
 
-If an image has a `_pressed` prefix, then a `selector_*.xml` drawable is automatically generated. It `supports `_activated` and `_selected` prefixes in addition to the pressed state.
+If an image has a `_pressed` prefix, then a `selector_*.xml` drawable is automatically generated. It supports `_activated` and `_selected` prefixes in addition to the pressed state.
 
 ## Dependencies
 
 [minimagick](https://github.com/minimagick/minimagick)
 ```
 brew install imagemagick
-brew install svgo
 ```
 
 [image_optim](https://github.com/toy/image_optim)
