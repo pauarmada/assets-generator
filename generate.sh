@@ -106,9 +106,11 @@ do
     pressed+="."
     pressed+=$ext
 
-    bundle exec convert $img -resize $(( multiplier * 50 / divider ))% $drawable_hdpi/$filename
-    bundle exec convert $img -resize $(( multiplier * 75 / divider ))% $drawable_xhdpi/$filename
-    bundle exec convert $img -resize $(( multiplier * 100 / divider ))% $drawable_xxhdpi/$filename
+    # TODO: hdpi should be 37.5%, improve readability of computation
+    hdpiSize=$(( (( multiplier * 75 )) / (( divider * 2 )) ))% 
+    bundle exec convert $img -resize $hdpiSize $drawable_hdpi/$filename
+    bundle exec convert $img -resize $(( multiplier * 50 / divider ))% $drawable_xhdpi/$filename
+    bundle exec convert $img -resize $(( multiplier * 75 / divider ))% $drawable_xxhdpi/$filename
 
     if [ -f "$src/$pressed" ]; then
       echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>" > $drawable/selector_$file.xml
